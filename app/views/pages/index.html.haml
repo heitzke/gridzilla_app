@@ -1,0 +1,10 @@
+%h1 Listing pages
+- grid 'pages', :url => pages_path(:format => :grid)
+
+%br/
+= link_to 'New page', new_page_path
+
+:javascript
+  var notify_user = function(page_id) {
+    alert('hello');
+  }

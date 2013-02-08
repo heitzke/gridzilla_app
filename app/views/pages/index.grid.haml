@@ -1,0 +1,17 @@
+- ajax_grid @pages, :grid_name => 'pages' do
+  - title "Listing of proposed pages for app"
+  - panel do
+    .gz_buttons_top
+      .gz_button= action_function "Approve", "notify_user", :class => 'send_message'
+    .clear
+  - rows do |page|
+    - select_column :id
+    - row_number_column
+    - column "Name" do
+      = link_to page.name, page
+    - column "Description", :description
+    - if_empty do
+      No pages to display at this time
+  - panel do
+    = pagination_links
+
