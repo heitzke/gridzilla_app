@@ -5,9 +5,9 @@
       .gz_button= action_function "Approve", "notify_user", :class => 'send_message'
     .clear
   - rows do |page|
-    - select_column :id
-    - row_number_column
-    - column "Name" do
+    - select_column :id, :style => 'width: 45px;'
+    - row_number_column :style => 'width 45px;'
+    - column "Name", :sort_key => "name" do
       = link_to page.name, page
     - column "Description", :description
     - if_empty do
