@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'will_paginate', '~> 3.0'
-gem "gridzilla", :git => "git://github.com/acsellers/gridzilla.git"
+gem "gridzilla", :path => "~/Projects/gridzilla/"
 
 gem 'haml', '~>3.1'
 gem "haml-rails"

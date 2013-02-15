@@ -1,8 +1,8 @@
-GIT
-  remote: git://github.com/acsellers/gridzilla.git
-  revision: 99775ee667f0ab8826529cc4706f2e4ef66a233f
+PATH
+  remote: ~/Projects/gridzilla/
   specs:
     gridzilla (0.1.alpha)
+      actionpack
 
 GEM
   remote: https://rubygems.org/
