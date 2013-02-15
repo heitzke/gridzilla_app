@@ -1,29 +1,84 @@
 $radius: 4px
 
+=gradient($from, $to)
+  /* fallback/image non-cover color */
+  background-color: $from
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to)
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to))
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to)
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to)
+
+=transition($property, $duration, $function)
+  -webkit-transition: ($property $duration $function)
+  -moz-transition: ($property $duration $function)
+  -ms-transition: ($property $duration $function)
+  -o-transition: ($property $duration $function)
+  transition: ($property $duration $function)
+
+@mixin table_header_column_styles
+  tr
+    +gradient(#999, #777)
+  th
+    :font-size .9em
+    :letter-spacing -0.3px
+    :padding 5px 4px 5px 4px
+    :color #eee
+    :text-transform uppercase
+    :text-shadow 1px 1px 0px #555
+    :width 12px
+    &.green, &.red, &.yellow
+      :background none
+    &.checkbox
+      :padding-left 4px
+    &.center
+      :text-align center
+    &.left
+      :text-align left
+    &.right
+      :text-align right
+    &.gz_sortable
+      :background url(/images/gridzilla/sort.gif) 100% 50% no-repeat
+      :padding-right 15px
+      :cursor pointer
+    &.gz_sort_asc, &.gz_sort_desc
+      :background-color #777
+      :color #fff
+    &.gz_sort_asc
+      :background-image url(/images/gridzilla/asc.gif)
+    &.gz_sort_desc
+      :background-image url(/images/gridzilla/desc.gif)
+    &:hover
+      :background #666
+      +transition( all, .2s, ease)
+
+
 //Generalize the checkbox selection.
 .gridzilla
-  table
+  .gz_checkbox
+    :width 12px
+    :height 12px
+    :background transparent url(/assets/gridzilla/checkboxes.gif) 0 0 no-repeat
+  .gz_radio_button
+    :width 12px
+    :height 12px
+    :background transparent url(/assets/gridzilla/radiobuttons.png) 0 0 no-repeat
+  &.ui-selected
     .gz_checkbox
-      :width 12px
-      :height 12px
-      :background transparent url(/assets/gridzilla/checkboxes.gif) 0 0 no-repeat
+      :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -12px no-repeat
     .gz_radio_button
-      :width 12px
-      :height 12px
-      :background transparent url(/assets/gridzilla/radiobuttons.png) 0 0 no-repeat
-    &.ui-selected
-      .gz_checkbox
-        :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -12px no-repeat
-      .gz_radio_button
-        :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -12px no-repeat
-    &.ui-partial
-      .gz_checkbox
-        :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -24px no-repeat
-    &.ui-selecting
-      .gz_checkbox
-        :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -36px no-repeat
-      .gz_radio_button
-        :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -24px no-repeat
+      :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -12px no-repeat
+  &.ui-partial
+    .gz_checkbox
+      :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -24px no-repeat
+  &.ui-selecting
+    .gz_checkbox
+      :background transparent url(/assets/gridzilla/checkboxes.gif) 0 -36px no-repeat
+    .gz_radio_button
+      :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -24px no-repeat
 
 // Development Mode //////////////////////////////////////
 a.reload_link
@@ -36,8 +91,11 @@ a.reload_link
 
 .gridzilla
   .gz_table
-    :border-bottom 1px solid gray
     :width 100%
+    :border-collapse separate
+    :-webkit-border-radius $radius
+    :border-radius $radius
+    :border 1px solid #ccc
     th,td
       :border-right 1px solid #CBCBCB
       :width 12px
@@ -65,18 +123,24 @@ a.reload_link
           :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -24px no-repeat
       &.gz_highlight_row
         :background-color #faf37b
+    thead
+      @include table_header_column_styles
     tbody
       tr
-        :background #f3f3f3
+        +gradient(#fff, #f4f4f4)
         &.alt
-          :background #E3E3E3
+          +gradient(#f4f4f4, #efefef)
         &.over
-          :background #fff
+          :background #ddd
+          +transition(all, .15s, ease)
+          color: #000
         &.ui-selected
-          :background #FEE4A0
+          +gradient(#85b9cb, #5792ae)
+          :color #fff
+          a 
+            :color #fff
         &.ui-selecting
           :background #FEEA70
-
       td
         :height 20px
         :padding 5px 4px 5px 4px
@@ -123,6 +187,8 @@ a.reload_link
   .fht_fixed_header
     :border-bottom 1px solid gray
     :background #bbb
+    thead
+      @include table_header_column_styles
 
   .fht_table_body    
     table.gz_table
@@ -157,26 +223,28 @@ a.reload_link
       :margin 0 3px 3px 3px
       &.right
         :text-align right
-  .gz_buttons_top
-    .gz_button
-      :-webkit-border-radius $radius
-      :border-radius $radius
-      :border 1px solid black
-      :float left
-      :padding 2px 2px 4px 2px
-      :margin 0 3px 3px 0
-      :background #DBDBDB url(/assets/gridzilla/small_gray_gradient.png) bottom repeat-x
-      :border 1px solid #B6B6B6
-      &:hover
-        :background #B3B3B3
-        a
-          :color #000
+  .gz_button
+    :-webkit-border-radius $radius
+    :border-radius $radius
+    :border 1px solid black
+    :display inline-block
+    :*display inline
+    :padding 3px 6px 3px 5px
+    :margin 0 3px 3px 0
+    :background-color #d6d6d6
+    :border 1px solid #B6B6B6
+    :background-color #ffffff
+    +gradient(#fff, #e6e6e6)
+    &:hover
+      +gradient(#eee, #ccc)
+      a
+        :color #000
     a
       :font-weight bold
-      :background url(/assets/gridzilla/add_16px.png) no-repeat 0px 1px
+      :background url(/assets/gridzilla/add_16px.png) no-repeat 0px 3px
       :font-size 11px
       :display block
-      :padding 2px 0 2px 19px
+      :padding 2px 0 2px 21px
       :text-decoration none
       :color #414141
 
