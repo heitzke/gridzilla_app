@@ -10,5 +10,8 @@
     = csrf_meta_tags
 
   %body
-    %p{:style => "color: green"}= notice
+    - if notice
+      .notification{:role => 'alert'}
+        = notice
+    /* tisk tisk, I see your inline style */
     = yield
