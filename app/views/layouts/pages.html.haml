@@ -20,7 +20,9 @@
           %ul.nav
             %li= link_to "Contact Us"
     .container
-      %p{:style => "color: green"}= notice
+      - if notice
+        .notification{:role => 'alert'}
+          = notice
       .row
         .span9= yield
         .span3
