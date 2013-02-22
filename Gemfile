@@ -25,10 +25,8 @@ end
 
 
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 
-gem 'will_paginate', '~> 3.0'
-gem "gridzilla", :git => 'git@github.com:Thoughtwright-LLC/gridzilla.git', :branch => 'rails32'
+gem "gridzilla", :git => 'git://github.com/Thoughtwright-LLC/gridzilla.git', :branch => 'rails32'
 
 gem 'haml', '~>3.1'
 gem "haml-rails"
