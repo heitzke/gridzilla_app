@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Thoughtwright-LLC/gridzilla.git
-  revision: c9e1b60c1edbfd3a7832c84fede09a971c82d62a
+  revision: d591e6938d823d8d88376990e9f9e67fd7938d37
   branch: rails32
   specs:
     gridzilla (0.1.alpha)
