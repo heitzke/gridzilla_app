@@ -2,10 +2,10 @@
   - title "RESTful Grid Example"
   - panel do
     .gz_buttons_top
-      .gz_button= action_function "Approve", "notify_user", :class => 'add'
+      .gz_button= action_function "Approve", "notify_user", :class => 'icon-camera-retro'
     .clear
   - rows do |page|
-    - select_column :id, :style => 'width: 45px;'
+    - single_select_column :id, :style => 'width: 45px;'
     - column "Name", :sort_key => "name" do
       = link_to page.name, page
     - column "Description", :description

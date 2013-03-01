@@ -26,7 +26,8 @@ end
 
 gem 'jquery-rails'
 
-gem "gridzilla", :git => 'git://github.com/Thoughtwright-LLC/gridzilla.git', :branch => 'rails32'
+gem "gridzilla", :path => '~/Projects/gridzilla'
+  #:git => 'git://github.com/Thoughtwright-LLC/gridzilla.git', :branch => 'rails32'
 
 gem 'haml', '~>3.1'
 gem "haml-rails"

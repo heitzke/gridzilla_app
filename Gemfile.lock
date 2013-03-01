@@ -1,7 +1,5 @@
-GIT
-  remote: git://github.com/Thoughtwright-LLC/gridzilla.git
-  revision: d591e6938d823d8d88376990e9f9e67fd7938d37
-  branch: rails32
+PATH
+  remote: ~/Projects/gridzilla
   specs:
     gridzilla (0.1.alpha)
       actionpack

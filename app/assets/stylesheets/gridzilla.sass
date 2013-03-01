@@ -223,71 +223,30 @@ a.reload_link
       :margin 0 3px 3px 3px
       &.right
         :text-align right
-  .gz_button
-    :-webkit-border-radius $radius
-    :border-radius $radius
-    :border 1px solid black
-    :display inline-block
-    :*display inline
-    :padding 3px 6px 3px 5px
-    :margin 0 3px 3px 0
-    :background-color #d6d6d6
-    :border 1px solid #B6B6B6
-    :background-color #ffffff
-    +gradient(#fff, #e6e6e6)
-    &:hover
-      +gradient(#eee, #ccc)
-      a
-        :color #000
-    a
-      &.add
-        :background url(/assets/gridzilla/add_16px.png) no-repeat
-      &.clock
-        :background url(/assets/gridzilla/clock_16px.png) no-repeat
-      &.check
-        :background url(/assets/gridzilla/check_16px.png) no-repeat
-      &.read
-        :background url(/assets/gridzilla/read_16px.png) no-repeat
-      &.allread
-        :background url(/assets/gridzilla/allread_16px.png) no-repeat
-      &.note
-        :background url(/assets/gridzilla/note_16px.png) no-repeat
-      &.remove
-        :background url(/assets/gridzilla/delete_16px.png) no-repeat
-      &.report
-        :background url(/assets/gridzilla/report_16px.png) no-repeat
-      &.print
-        :background url(/assets/gridzilla/printer_16px.png) no-repeat
-      &.send_message
-        :background url(/assets/gridzilla/message_16px.png) no-repeat
-      &.tag
-        :background url(/assets/gridzilla/tag_16px.png) no-repeat
-      &.dropclass
-        :background url(/assets/gridzilla/drop_class_16px.png) no-repeat
-      &.edit
-        :background url(/assets/gridzilla/edit_16px.png) no-repeat
-      &.excel
-        :background url(/assets/gridzilla/page_excel.png) no-repeat
-      &.match
-        :background url(/assets/gridzilla/match_16px.png) no-repeat
-      &.no_show
-        :background url(/assets/gridzilla/noshow_16px.png) no-repeat
-      &.send_document
-        :background url(/assets/gridzilla/send_doc_16px.png) no-repeat
-      &.move_up
-        :background url(/assets/gridzilla/arrow_up_16px.png) no-repeat
-      &.clipboard
-        :background url(/assets/gridzilla/clipboard_16px.png) no-repeat
-      &.copytime
-        :background url(/assets/gridzilla/copy_16px.png) no-repeat
-      &.hourglass
-        :background url(/assets/gridzilla/hourglass_16px.png) no-repeat
-      &.firstavailable
-        :background url(/assets/gridzilla/first_available_16px.png) no-repeat
-      &.allclassattendance
-        :background url(/assets/gridzilla/allattendance_16px.png) no-repeat
-      &.toggle
-        :background url(/assets/gridzilla/toggle_16px.png) no-repeat
+    .gz_buttons_top
+      .gz_button
+        :-webkit-border-radius $radius
+        :border-radius $radius
+        :border 1px solid black
+        :display inline-block
+        :*display inline
+        :padding 3px 6px 3px 5px
+        :margin 0 3px 3px 0
+        :background #DBDBDB url(/assets/gridzilla/small_gray_gradient.png) bottom repeat-x
+        :border 1px solid #B6B6B6
+        :background-color #ffffff
+        +gradient(#fff, #e6e6e6)
+        &:hover
+          +gradient(#eee, #ccc)
+          a
+            :color #000
+        a
+          :font-weight bold
+          :font-size 11px
+          :display block
+          :padding 2px 0 2px 0px
+          :text-decoration none
+          :color #414141
 
   .gz_empty
     :min-height 60px

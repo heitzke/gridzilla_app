@@ -1,0 +1,16 @@
+- ajax_grid @pages do
+  - title "Multiple Params Example"
+  - panel do
+    .gz_buttons_top
+      .gz_button= action_function "Approve", "notify_user_with_multi_params", :class => 'icon-ok-sign'
+    .clear
+  - rows do |page|
+    - select_column({ :id => page.id, :name => page.name }, :style => 'width: 45px;')
+    - column "Name" do
+      = link_to page.name, page
+    - column "Description", :description
+    - if_empty do
+      No pages to display at this time
+  - panel do
+    = pagination_links
+

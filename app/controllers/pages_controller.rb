@@ -85,6 +85,10 @@ class PagesController < ApplicationController
     row_numbers do
       current_objects
     end
+
+    multiple_params do
+      current_objects
+    end
   end
 
  private

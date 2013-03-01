@@ -2,14 +2,25 @@
 - grid 'pages', :url => pages_path(:format => :grid)
 
 %br
-%br
 
 - grid "row_numbers", :height => 200
+
+%br
+
+- grid "multiple_params", :height => 200
 
 %br/
 = link_to 'New page', new_page_path
 
 :javascript
-  var notify_user = function(page_id) {
-    alert('You have chosen to modify record #' + page_id);
+  var notify_user = function(page_ids) {
+    alert('You have chosen to modify record #' + page_ids);
+  }
+
+  var notify_user_with_multi_params = function(pages) {
+    var pages_description = ""
+    $.each(pages, function (key, value) {
+      pages_description += value.id + "-" + value.name + " "
+    });
+    alert('You have chosen to modify ' + pages.length + ' pages: ' + pages_description);
   }
