@@ -5,7 +5,7 @@
       .gz_button= action_function "Approve", "notify_user", :class => 'icon-camera-retro'
     .clear
   - rows do |page|
-    - single_select_column :id, :style => 'width: 45px;'
+    - single_select_column :id
     - column "Name", :sort_key => "name" do
       = link_to page.name, page
     - column "Description", :description

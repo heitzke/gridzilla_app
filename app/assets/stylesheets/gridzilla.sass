@@ -1,15 +1,14 @@
+//////////////// GRIDZILLA //////////////////
+
+///// general mixins for border-radius, gradient, transitions //////
+
 $radius: 4px
 
 =gradient($from, $to)
-  /* fallback/image non-cover color */
   background-color: $from
-  /* Firefox 3.6+ */
   background-image: -moz-linear-gradient($from, $to)
-  /* Safari 4+, Chrome 1+ */
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to))
-  /* Safari 5.1+, Chrome 10+ */
   background-image: -webkit-linear-gradient($from, $to)
-  /* Opera 11.10+ */
   background-image: -o-linear-gradient($from, $to)
 
 =transition($property, $duration, $function)
@@ -52,7 +51,7 @@ $radius: 4px
     &.gz_sort_desc
       :background-image url(/assets/gridzilla/desc.gif)
     &:hover
-      :background #666
+      :background-color #666
       +transition( all, .2s, ease)
 
 
@@ -80,14 +79,16 @@ $radius: 4px
     .gz_radio_button
       :background transparent url(/assets/gridzilla/radiobuttons.png) 0 -24px no-repeat
 
-// Development Mode //////////////////////////////////////
 a.reload_link
   :font-size 10px
   :font-weight bold
   :display inline-block
-  :background url(/assets/gridzilla/reload_icon.png) 0 0 no-repeat
+  :background url(/assets/gridzilla/reload_icon.png) 0 2px no-repeat
   :padding 0px 0 3px 18px
   :color #444
+  &:hover
+    :color #111
+    :text-decoration none
 
 .gridzilla
   .gz_table
@@ -127,23 +128,28 @@ a.reload_link
       @include table_header_column_styles
     tbody
       tr
-        +gradient(#fff, #f4f4f4)
+        +gradient(#fafafa, #f8f8f8)
         &.alt
-          +gradient(#f4f4f4, #efefef)
+          +gradient(#f1f1f1, #e8e8e8)
         &.over
           :background #ddd
           +transition(all, .15s, ease)
           color: #000
+          td
+            :box-shadow inset 0px 1px 0px #f4f4f4
         &.ui-selected
           +gradient(#85b9cb, #5792ae)
           :color #fff
           a 
             :color #fff
+          td
+            :box-shadow inset 0px 1px 0px #9ecdde
         &.ui-selecting
           :background #FEEA70
       td
         :height 20px
         :padding 5px 4px 5px 4px
+        :box-shadow inset 0px 1px 0px #fff
         &.checkbox
           :padding-left 4px
         &.at_risk
@@ -172,11 +178,9 @@ a.reload_link
               :text-decoration underline
             a:hover
               :text-decoration none
-
     tr
       td.accepts_color
         :background inherit
-
       &.puts_green
         .accepts_color, .accepts_green
       &.puts_red
